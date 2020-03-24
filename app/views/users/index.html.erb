@@ -1,0 +1,46 @@
+<%
+text = <<~TEXT
+# 大見出し
+## 中見出し
+### 小見出し
+
+---
+
+```rb
+
+def markdown(text)
+	html_render = HTMLwithCoderay.new(
+		filter_html: true,
+		hard_wrap: true,
+		link_attributes: { rel: 'nofollow', target: "_blank" }
+	)
+	options = {
+			autolink: true,
+			space_after_headers: true,
+			no_intra_emphasis: true,
+			fenced_code_blocks: true,
+			tables: true,
+			hard_wrap: true,
+			xhtml: true,
+			lax_html_blocks: true,
+			strikethrough: true
+	}
+	markdown = Redcarpet::Markdown.new(html_render, options)
+	markdown.render(text)
+end
+	
+```
+
+---
+
+`application_helper.rb`
+
+> **あってもなくてもいいものは**
+>
+> **ないほうがいいんだな**
+
+---
+
+TEXT
+%>
+<%= markdown(text).html_safe %>
