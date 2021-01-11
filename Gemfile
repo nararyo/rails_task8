@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 #マークダウンを導入する
-gem 'redcarpet', '~>2.3.0'
+gem 'redcarpet', '~>3.5.1'
 #シンタックスハイライト
 gem 'coderay'
 
